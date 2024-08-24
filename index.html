@@ -3,189 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Evaluaciones de Ciencia y Tecnología</title>
+    <title>Evaluaciones 2024 - Ciencia y Tecnología</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: #111;
-            color: white;
-            overflow: hidden;
+            background: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .header {
             position: relative;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            padding: 20px;
+            background: url('https://i.postimg.cc/3NDyj9kX/04d7d689-e583-4fd8-8400-a096eb1a493a.webp') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 300px; /* Ajusta la altura del encabezado según tus necesidades */
         }
 
-        /* Fondo de ondas de neón */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(60deg, #ff6ec4, #7873f5);
-            z-index: 0;
-            animation: gradientBG 15s ease infinite;
-        }
-
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* Encabezado con resplandor de neón */
-        header {
+        .header img.logo {
+            width: 100px;
+            height: auto;
             z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
             text-align: center;
-            position: relative;
-            width: 100%;
-            padding-top: 20px;
+            flex: 1;
+            animation: textGlow 2s ease-in-out infinite alternate;
+            z-index: 1;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
-        header h1 {
-            font-size: 3.5em;
-            text-transform: uppercase;
-            color: #fff;
-            text-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12, 0 0 30px #e74c3c, 0 0 40px #e74c3c, 0 0 50px #e74c3c;
-            animation: neonGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes neonGlow {
+        @keyframes textGlow {
             from {
-                text-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12, 0 0 30px #e74c3c, 0 0 40px #e74c3c, 0 0 50px #e74c3c;
+                text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #4682b4;
             }
             to {
-                text-shadow: 0 0 20px #ff9c00, 0 0 30px #ff6ec4, 0 0 40px #ff6ec4, 0 0 50px #ff6ec4;
+                text-shadow: 0 0 20px #00ced1, 0 0 30px #20b2aa, 0 0 40px #5f9ea0;
             }
         }
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-            opacity: 0.8;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        /* Botones con sombra y brillo */
-        .buttons {
-            z-index: 1;
+        .grades {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 50px;
             margin-top: 50px;
-            text-align: center;
         }
 
-        .buttons a {
-            display: inline-block;
-            padding: 20px 40px;
-            margin: 10px;
-            font-size: 1.2em;
-            text-transform: uppercase;
+        .grades div {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            text-align: right;
+        }
+
+        .grades a {
+            padding: 15px 25px;
+            margin: 10px 0;
             text-decoration: none;
-            background-color: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid #fff;
+            background-color: #0073e6;
             border-radius: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
         }
 
-        .buttons a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        .grades a:hover {
+            background-color: #005bb5;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
-        /* Elementos flotantes */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .footer {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 1em;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .footer .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
+            max-width: 500px;
         }
 
-        .floating-elements div {
-            position: absolute;
+        .footer .contact button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 90%;
+            border: none;
+            border-radius: 5px;
+            background-color: #0073e6;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer .contact button:hover {
+            background-color: #005bb5;
+            transform: translateY(-3px);
+        }
+
+        .footer .contact button img {
+            margin-right: 10px;
             width: 20px;
-            height: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
+            height: auto;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-20px) translateX(20px);
-            }
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-        }
-
-        /* Estilo del logo */
-        .logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 100px;
-            z-index: 2;
-        }
-
-        /* Ajuste para diferentes dispositivos */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
+            .header h1 {
+                font-size: 2em;
             }
 
-            .buttons a {
-                padding: 15px 30px;
-                font-size: 1em;
+            .grades a {
+                padding: 15px 20px;
+                font-size: 1.1em;
             }
 
-            .logo {
-                width: 70px;
-                top: 15px;
-                right: 15px;
+            .footer .contact button {
+                padding: 8px;
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="background"></div>
-
-    <!-- Logo en la esquina superior derecha -->
-    <img src="https://i.postimg.cc/xdY9fHwT/logo70056-removebg-preview-1.png" alt="Logo" class="logo">
-
-    <header>
-        <h1>Portal de Evaluaciones de Ciencia y Tecnología</h1>
-        <p>Desafía tus conocimientos en un entorno interactivo y dinámico.</p>
-    </header>
-
-    <div class="buttons">
-        <a href="#">Iniciar Evaluación</a>
-        <a href="#">Guía de Estudio</a>
-        <a href="#">Resultados Anteriores</a>
+    <div class="header">
+        <img src="https://i.postimg.cc/xdY9fHwT/logo70056-removebg-preview-1.png" alt="Logo" class="logo">
+        <h1>Evaluaciones 2024<br>Ciencia y Tecnología<br>COED 70056</h1>
     </div>
 
-    <div class="floating-elements">
-        <div style="top: 10%; left: 15%; animation-delay: 0s;"></div>
-        <div style="top: 25%; left: 45%; animation-delay: 2s;"></div>
-        <div style="top: 70%; left: 70%; animation-delay: 4s;"></div>
-        <div style="top: 50%; left: 80%; animation-delay: 1s;"></div>
-        <div style="top: 85%; left: 25%; animation-delay: 3s;"></div>
+    <div class="grades">
+        <div>
+            <a href="#">2° Técnico</a>
+            <a href="#">1° Técnico</a>
+            <a href="#">9° Grado</a>
+            <a href="#">8° Grado</a>
+            <a href="#">7° Grado</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; Derechos Reservados Prof. Alberto Sanchez</p>
+        <div class="contact">
+            <button>
+                <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">Contacto
+            </button>
+            <button>
+                <img src="https://img.icons8.com/color/48/000000/email.png" alt="Correo">Correo
+            </button>
+        </div>
     </div>
 
 </body>
